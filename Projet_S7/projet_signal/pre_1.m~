@@ -4,7 +4,7 @@ clear all; close all;clc;
 
 %% Initialisation des variables
 
-N = 10000;
+N = 1000;
 sigma = 1;
 
 
@@ -26,11 +26,10 @@ SP = fftshift(abs(fft(nb,N)).^2/N);
 
 DSP = fftshift(abs(fft(Rtheo,N)));
 
-Daniell = pwelch(nb,100,99);
 
-Bartlett = pwelch(nb,100,0);
+Bartlett = pwelch(nb,50,0);
 
-Welch = pwelch(nb,100);
+Welch = pwelch(nb,100,10);
 
 %% Affichage
 
@@ -49,22 +48,18 @@ title('Unbiased')
 
 
 figure,
-subplot(5,1,1)
+subplot(4,1,1)
 plot(SP)
 title('Spectre de puissance')
 
-subplot(5,1,2)
+subplot(4,1,2)
 plot(DSP)
 title('Densité spectrale de puissance')
 
-subplot(5,1,3)
-plot(Daniell)
-title('Périodogramme de Daniell')
+subplot(4,1,3)
+plot(Welch)
+title('Périodogramme de welch')
 
-subplot(5,1,4)
+subplot(4,1,4)
 plot(Bartlett)
 title('Périodogramme de Bartlett')
-
-subplot(5,1,5)
-plot(Welch)
-title('Périodogramme de Welch')
