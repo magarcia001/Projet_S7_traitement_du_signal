@@ -5,13 +5,40 @@ clear all; close all;clc;
 %% Initialisation des variables
 
 load('fcno03fz.mat');
-load('fcno04fz.mat');
-y1 = fcno03fz;
-y2 = fcno04fz;
+s = fcno03fz';
+RSB = 5;
+N = length(s);
 
-sigma = 0;
+%% Ajout du bruit
+
+s_bruit = bruit_rsb( s,RSB, N);
+
+%% Découpage trame et fenêtrage
+
+trames = dec_fen_trame(s_bruit,0.3);
+
+%% Réhaussement trame par trame
+
+trames_rehaus= rehaussement(trames);
+
+%% Reconstruction signal par addition recouvrement
+
+s_reconstruit = reconstruction(trames_rehaus);
+
+%% Affichage
+
+figure,
+subplot(3,1,1)
+plot(s)
+title('Représentation temporelle du signal')
 
 
-%% Ajout bruit blanc gaussien centré
+figure,
+subplot(3,1,2)
+plot(s_bruit)
+title('Représentation temporelle du signal bruité')
 
-yb = y1 +randn(length(y1),1)*sigma;
+
+subplot(3,1,3)
+plot(s_reconstruit)
+title('Représentation temporelle du signal reconstruit')

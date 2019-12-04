@@ -1,6 +1,6 @@
 function [ s_bruit] = bruit_rsb( s, RSB, N)
 
-b1=randn(1,N);
+b1=randn(1,N); % bruit blanc gaussien
 
 S=0;
 B1=0;

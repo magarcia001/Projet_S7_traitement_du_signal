@@ -26,7 +26,7 @@ SP = fftshift(abs(fft(nb,N)).^2/N);
 
 DSP = fftshift(abs(fft(Rtheo,N)));
 
-Daniell = pwelch(nb,100,99);
+Daniell = pwelch(nb,100,99); % à modifier
 
 Bartlett = pwelch(nb,100,0);
 
