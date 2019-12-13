@@ -26,11 +26,11 @@ SP = fftshift(abs(fft(nb,N)).^2/N);
 
 DSP = fftshift(abs(fft(Rtheo,N)));
 
-Daniell = pwelch(nb,100,99); % à modifier
+% Daniell = pwelch(nb,100,99); % à modifier
 
-Bartlett = pwelch(nb,100,0);
+Bartlett = periodogram(nb,ones(1,N),N);
 
-Welch = pwelch(nb,100);
+Welch = pwelch(nb,1024);
 
 %% Affichage
 
@@ -57,9 +57,9 @@ subplot(5,1,2)
 plot(DSP)
 title('Densité spectrale de puissance')
 
-subplot(5,1,3)
-plot(Daniell)
-title('Périodogramme de Daniell')
+% subplot(5,1,3)
+% plot(Daniell)
+% title('Périodogramme de Daniell')
 
 subplot(5,1,4)
 plot(Bartlett)

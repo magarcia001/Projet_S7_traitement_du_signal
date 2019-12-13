@@ -10,13 +10,13 @@ function [moy_vect] = moy_antidiagonal(M)
         moy_vect = [moy_vect m];
     end
     
-    for j=2:w
-        m=0;
-        for l=0:w-j
-            m = m+ M(h-l,j+l);
-        end
-        m= m/i;
-        moy_vect = [moy_vect m];
-    end
-        
+%     for j=2:w
+%         m=0;
+%         for l=0:w-j
+%             m = m+ M(h-l,j+l);
+%         end
+%         m= m/i;
+%         moy_vect = [moy_vect m];
+%     end
+%         
 end
