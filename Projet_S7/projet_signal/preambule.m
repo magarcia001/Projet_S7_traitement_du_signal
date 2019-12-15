@@ -21,7 +21,6 @@ figure,
 subplot(2,1,1)
 plot(s)
 title('Représentation temporelle du signal')
-soundsc(s_reconstruit);
 
 subplot(2,1,2)
 plot(s_reconstruit)
