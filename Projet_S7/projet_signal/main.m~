@@ -47,18 +47,16 @@ title('Représentation temporelle du signal reconstruit')
 
 figure,
 subplot(3,1,1)
-spectrogram(s,100,0,2048,fech,'yaxis')
-title('Spectrogramme du signal initial')
-
-
-
-subplot(3,1,2)
 spectrogram(s_bruit,100,0,2048,fech,'yaxis')
 title('Spectrogramme du signal bruité')
 
 
+
+subplot(3,1,2)
+plot(s_reconstruit)
+title('Représentation temporelle du signal bruité')
+
+
 subplot(3,1,3)
-spectrogram(s_reconstruit,100,0,2048,fech,'yaxis')
-title('Spectrogramme du signal réhaussé')
 
 

@@ -13,11 +13,11 @@ function [trames_rehaus] = rehaussement(trames, sigma)
          compteur =1 ;
          seuil = sigma^2/sqrt(L);
          [a b]  =size(S);
-         while compteur<=b && S(compteur,compteur)>=seuil
+         while compteur<=b && S(compteur,compteur)>seuil
             compteur=compteur+1;
          end
-         K = compteur - 1;
-%          K = 250;
+         %K = compteur - 1;
+          K = 150;
          
          Ss = S(1:K,1:K);
          Us = U(:,1:K);
